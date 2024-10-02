@@ -61,9 +61,6 @@ This is a Django-based Inventory Management System that manages inventory with t
     http://127.0.0.1:8000/
     ```
 
-## Screenshots
-(Add screenshots here if you'd like to showcase parts of your system, like the dashboard or product listing.)
-
 ## Usage
 1. **Admin Access**: Admin users can add, update, or delete products.
 2. **Staff Access**: Staff can view their assigned tasks and products.
