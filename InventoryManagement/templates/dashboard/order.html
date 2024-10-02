@@ -1,0 +1,45 @@
+{% extends "partials/base.html" %} 
+{% block title %} Order Page {% endblock %}
+{% block content %}
+{% include "partials/topside.html" %}
+  <!-- Table-->
+  <div class="container">
+    <div class="row my-4">
+        <div class="col-md-3"></div>
+        <div class="col-md-9">
+            <table class="table table-striped bg-info mt-1 table-bordered   ">
+                <thead class="table-dark" >
+                  <tr>
+                    <th scope="col">Product</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Ordered by</th>
+                    <th scope="col">Date</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for order in orders  %}
+                  <tr>
+                    <td>{{order.product}}</td>
+                    <td>{{order.product.category}}</td>
+                    <td>{{order.order_quantity}}</td>
+                    <td>{{order.staff.username}}</td>
+                    <td>{{order.date}}</td>
+
+
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+
+        </div>
+    </div>
+
+</div>
+  <!-- Table End-->
+
+{% endblock content %}
+
+
+

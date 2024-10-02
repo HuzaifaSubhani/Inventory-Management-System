@@ -1,0 +1,53 @@
+{% extends "partials/base.html" %} 
+{% block title %}Profile Page {% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <!-- Topside start -->
+    <!-- left side  -->
+    <div class="container">
+        <div class="row mt-4">
+  
+      <!-- right side -->
+            <div class="col-md-8 m-auto">
+              <div class="card">
+                <div class="card-header bg-body-primary text-bg-secondary text-center">
+                  <h3>Profile Update Page</h3>
+                </div>
+                  <div class="card-body ">
+                    <div class="row">
+                      <div class="col-md-8">
+                        <div class="card bg-body-primary text-bg-secondary p-2 ">
+                            <h5>Profile Information </h5>
+                            <form method="post" enctype="multipart/form-data">
+                              {% csrf_token %}
+
+                              {{user_form|crispy}}
+                              {{profile_form|crispy}}
+                              <button type="submit" class="btn btn-primary m-2">Update</button>
+
+                            </form>
+                        
+                        
+                          </div>
+ 
+                        </div>
+                        <div class="col-md-4">
+                          <img src="{{user.profile.image.url}}" class="img-thumbnail"  alt="">
+                          
+                        </div>
+                    </div>
+                  </div>
+                  
+              </div>
+            </div>
+      <!-- right side end -->
+        </div>
+      </div>
+     <!-- Topside end -->
+  
+
+{% endblock content %}
+
+
+

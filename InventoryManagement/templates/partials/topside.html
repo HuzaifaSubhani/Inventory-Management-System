@@ -1,0 +1,56 @@
+    <!-- Topside start -->
+    <!-- left side  -->
+    <div class="container">
+        <div class="row mt-4">
+          <div class="col-md-3">
+            <div class="card">
+              <div class="card-header bg-body-primary text-bg-secondary text-center">
+                <h3>Profile</h3>
+              </div>
+              <div class="card-body m-5 text-center">
+                <h2>{{user.username}}</h2>
+              </div>
+            </div>
+          </div>
+      <!-- left side end -->
+      <!-- right side -->
+            <div class="col-md-9">
+              <div class="card">
+                <div class="card-header bg-body-primary text-bg-secondary text-center">
+                  <h3>Statistics</h3>
+                </div>
+                  <div class="card-body m-4">
+                    <div class="row">
+                      <div class="col-md-4">
+                      <a href={% url "dashboard-staff" %} class="text-decoration-none text-dark ">
+                        <div class="card bg-body-primary text-center text-bg-secondary p-2 my-card shadow">
+                            <h5>Staff <i class="fa-solid fa-users"></i></h5>
+                            <h2>{{workers_count}}</h2>
+                        </div>
+                      </a>
+                      </div>
+                      <div class="col-md-4">
+                        <a href={% url "dashboard-product" %} class="text-decoration-none text-dark ">
+                          <div class="card bg-body-primary text-center text-bg-secondary p-2 my-card">
+                              <h5>Products <i class="fa-solid fa-cart-shopping"></i></h5>
+                              <h2>{{products_count}}</h2>
+                          </div>
+                        </a>
+                        </div>
+                        <div class="col-md-4">
+                          <a href={% url "dashboard-order" %} class="text-decoration-none text-dark ">
+                            <div class="card bg-body-primary text-center text-bg-secondary p-2 my-card">
+                                <h5>Orders <i class="fa-solid fa-truck-fast"></i></h5>
+                                <h2>{{orders_count}}</h2>
+                            </div>
+                          </a>
+                          </div>
+                    </div>
+                  </div>
+                  
+              </div>
+            </div>
+      <!-- right side end -->
+        </div>
+      </div>
+     <!-- Topside end -->

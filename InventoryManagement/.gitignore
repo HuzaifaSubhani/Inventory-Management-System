@@ -1,0 +1,18 @@
+# Ignore SQLite database
+db.sqlite3
+
+# Ignore media uploads
+media/
+
+# Ignore compiled Python files
+*.pyc
+__pycache__/
+
+# Ignore virtual environment folder
+venv/
+
+# Ignore IDE-specific files (for example, VSCode)
+.vscode/
+
+# Ignore Django staticfiles
+staticfiles/

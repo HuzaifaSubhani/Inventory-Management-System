@@ -1,0 +1,215 @@
+{% extends "partials/base.html" %} 
+{% block title %}Inventory Management System{% endblock %}
+{% block content %}
+{% if user.is_authenticated and user.is_staff and user.is_superuser%}
+{% include "partials/topside.html" %}
+
+
+  <!-- Graph-->
+  <div class="container">
+    <div class="row">
+      
+      <!--Graph 1-->
+     <div class="col-md-6">
+        <div class="card mt-4">
+
+          <div class="card-body">
+        <div>
+          <canvas id="myChart"></canvas>
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        
+        <script>
+          const ctx = document.getElementById('myChart');
+        
+          new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: [{% for order in orders%} "{{order.product.name}}", {% endfor %}],
+              datasets: [{
+                label: 'Order',
+                data: [{% for order in orders%} "{{order.order_quantity}}", {% endfor %}],
+                backgroundColor:['rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'],
+                borderWidth: 1
+              }]
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true
+                }
+              }
+            }
+          });
+        </script>
+         
+          </div>
+      
+        </div>
+      </div>
+     <!--Graph 1 End-->
+      <!--Graph 2-->
+
+     <div class="col-md-6">
+      <div class="card mt-4">
+
+        <div class="card-body">
+      <div>
+        <canvas id="myChart1"></canvas>
+      </div>
+      
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      
+      <script>
+        const ctx1 = document.getElementById('myChart1');
+      
+        new Chart(ctx1, {
+          type: 'line',
+          data: {
+            labels: [{% for order in orders%} "{{order.product.name}}", {% endfor %}],
+            datasets: [{
+              label: 'Order',
+              data: [{% for order in orders%} "{{order.order_quantity}}", {% endfor %}],
+              backgroundColor:['rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)',
+              'rgba(255, 159, 64, 1)'],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      </script>
+       
+        </div>
+    
+      </div>
+    </div>
+    <!--Graph 2 end-->
+     
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      
+      <!--Graph 3-->
+     <div class="col-md-6">
+        <div class="card mt-4">
+
+          <div class="card-body">
+        <div>
+          <canvas id="myChart2"></canvas>
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        
+        <script>
+          const ctx2 = document.getElementById('myChart2');
+        
+          new Chart(ctx2, {
+            type: 'pie',
+            data: {
+              labels: [{% for product in products%} "{{product.name}}", {% endfor %}],
+              datasets: [{
+                label: 'Product',
+                data: [{% for product in products%} "{{product.quantity}}", {% endfor %}],
+                backgroundColor:['rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'],
+                borderWidth: 1
+              }]
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true
+                }
+              }
+            }
+          });
+        </script>
+         
+          </div>
+      
+        </div>
+      </div>
+      <!--Graph 3 ends-->
+      <!--Graph 4-->
+
+     <div class="col-md-6">
+      <div class="card mt-4 mb-4">
+
+        <div class="card-body">
+      <div>
+        <canvas id="myChart3"></canvas>
+      </div>
+      
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      
+      <script>
+        const ctx3 = document.getElementById('myChart3');
+      
+        new Chart(ctx3, {
+          type: 'radar',
+          data: {
+            labels: [{% for product in products%} "{{product.name}}", {% endfor %}],
+            datasets: [{
+              label: 'Product',
+              data: [{% for product in products%} "{{product.quantity}}", {% endfor %}],
+              backgroundColor:['rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)',
+              'rgba(255, 159, 64, 1)'],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      </script>
+       
+        </div>
+    
+      </div>
+    </div>
+      <!--Graph 4 ends-->
+     
+    </div>
+  </div>
+  <!-- Graph End-->
+  {% else %}
+  {% include "dashboard/staff_index.html" %}
+{% endif %}
+{% endblock content %}
+
+
+
+
+
+
+

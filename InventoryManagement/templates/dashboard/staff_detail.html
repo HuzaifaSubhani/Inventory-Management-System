@@ -1,0 +1,65 @@
+{% extends "partials/base.html" %} 
+{% block title %} Staff Detail Page {% endblock %}
+
+{% block content %}
+{% include "partials/topside.html" %}
+
+
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-md-3"></div>
+
+<!-- right side -->
+      <div class="col-md-9">
+        <div class="card">
+          <div class="card-header bg-body-primary text-bg-secondary text-center">
+            <h3>Staff Detail Page</h3>
+          </div>
+            <div class="card-body ">
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="card bg-body-primary text-bg-secondary p-2 ">
+                      <h5>Profile Information </h5>
+                      
+                  
+                    </div>
+                    <table class="table bg-info mt-2 table-borderless   ">
+                    
+                        <tbody>
+                            <tr>
+                            <th>Name</th>           
+                            <td>{{workers.username}}</td>          
+                          </tr>
+                          <tr>
+                            <th>Email</th>           
+                            <td>{{workers.email}}</td>          
+                          </tr>
+                          <tr>
+                            <th>Phone</th>           
+                            <td>{{workers.profile.phone}}</td>          
+                          </tr>
+                          <tr>
+                            <th>Address</th>           
+                            <td>{{workers.profile.address}}</td>          
+                          </tr>
+            
+                        </tbody>
+                      </table>
+
+                  </div>
+                  <div class="col-md-4">
+                    <img src="{{workers.profile.image.url}}" class="img-thumbnail"  alt="">
+          
+                  </div>
+              </div>
+            </div>
+            
+        </div>
+      </div>
+<!-- right side end -->
+  </div>
+</div>
+
+{% endblock content %}
+
+
